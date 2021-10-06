@@ -10,7 +10,7 @@ let obtenerStorage = JSON.parse(localStorage.getItem("Tareas")) || [];
 const TodoPage = () => {
   let [tareas, setObtenerTareas] = useState(obtenerStorage);
   const [filtroTareas, setFiltroTareas] = useState(obtenerStorage);
-  
+
   const [Value, InputValue] = useState({
     tarea: "",
   });
@@ -60,19 +60,15 @@ const TodoPage = () => {
   };
 
   const cambiarEstadoTareas = (defaultCheck) => {
-    console.log("cambiando estado",defaultCheck);
-    
-    let estado=true
+    let estado = true;
     const filtroTareasEstadoEnTrue = tareas.filter((tarea) => {
       if (!defaultCheck) {
         tarea.estado = estado;
         return tareas;
-      }else{
+      } else {
         tarea.estado = !estado;
-        return tareas
+        return tareas;
       }
-    
-      
     });
     setObtenerTareas(filtroTareasEstadoEnTrue);
   };
